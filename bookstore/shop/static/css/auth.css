@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family: 'Golos Text', sans-serif;
+    --color-bg: rgb(236, 236, 236);
+    --color-text: #333;
+    --color-secondary-text: #666;
+    --color-primary: #007BFF;
+    --color-primary-hover: #0056b3;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --input-border-color: #ddd;
+    --input-focus-color: rgba(0, 123, 255, 0.3);
+    --font-size-base: 16px;
+    --font-size-title: 24px;
+    --font-size-small: 14px;
+    --container-padding: 40px;
+    --container-width: 400px;
+    --gap: 15px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: var(--container-width);
+    padding: var(--container-padding);
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-top: 150px;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    color: var(--color-text);
+    font-size: var(--font-size-title);
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.auth-container p {
+    font-size: var(--font-size-small);
+    color: var(--color-secondary-text);
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+}
+
+.auth-container input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px var(--input-focus-color);
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.auth-container a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
+}

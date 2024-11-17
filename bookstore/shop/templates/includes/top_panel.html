@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="top-panel">
+    <div class="logo">
+        <h1><a href="{% url 'home' %}">Электронная библиотека</a></h1>
+    </div>
+    <nav class="nav-right">
+        {% if user.is_authenticated %}
+            <span>Добро пожаловать, {{ user.first_name|default:"пользователь" }} {{ user.last_name|default:"" }}!</span>
+            {% if user.is_superuser %}
+                <a href="{% url 'export_page' %}">Экспорт</a>
+            {% elif user.is_staff %}
+                <a href="{% url 'export_page' %}">Экспорт</a>
+            {% endif %}
+            <a href="{% url 'purchased_books' %}">Мои книги</a>
+            <a href="{% url 'user_orders' %}">Мои заказы</a>
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="link-button">Выйти</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Вход</a>
+            <a href="{% url 'register' %}">Регистрация</a>
+        {% endif %}
+    </nav>
+</div>

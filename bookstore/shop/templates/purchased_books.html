@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои книги</title>
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="container">
+                <h2>Мои книги</h2>
+                <div class="orders-container">
+                    {% for book in books %}
+                        <div class="order">
+                            <span>{{ book.name }} - {{ book.author.name }}</span>
+                            <div class="order-buttons">
+                                <form action="{% url 'read_book' book.id %}" method="get" style="display:inline;">
+                                    <button type="submit">Читать</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="no-orders">У вас нет оплаченных книг.</div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

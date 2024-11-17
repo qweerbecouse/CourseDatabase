@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.name }} - Электронная библиотека</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="other-container">
+                {% block content %}
+                <h2>{{ book.name }}</h2>
+
+                <div class="order">
+                    {% if has_unpaid_order %}
+                        <p>Оплатите заказ в <a href="{% url 'user_orders' %}">Мои заказы</a>.</p>
+                    {% elif is_ordered and is_paid %}
+                        <form action="{% url 'read_book' book.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="order">Читать</button>
+                        </form>
+                    {% else %}
+                        <form action="{% url 'buy_book' book.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="order">Купить</button>
+                        </form>
+                        <p>Чтобы прочитать эту книгу, её нужно купить.</p>
+                    {% endif %}
+                </div>
+                {% endblock %}
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

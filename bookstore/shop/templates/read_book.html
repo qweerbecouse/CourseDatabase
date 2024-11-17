@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.name }} - Чтение книги</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="container">
+                <div class="book-content">
+                    <h2>{{ book.name }}</h2>
+                    <h3>Автор: {{ book.author.name }}</h3>
+                    <div class="book-text">
+
+                        <p>Содержимое книги {{ book.name }}...</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заказы</title>
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="container">
+                <h2>Мои заказы</h2>
+                <div class="orders-container">
+                    {% for order in orders %}
+                        <div class="order">
+                            <span>Заказ №{{ order.id }} - {{ order.book.name }} - {{ order.date }} - {{ order.total_sum }} </span>
+                            {% if order.is_paid %}
+                                <span>Оплачен</span>
+                            {% else %}
+                                <div class="order-buttons">
+                                    <form action="{% url 'cancel_order' order.id %}" method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" onclick="return confirm('Вы уверены, что хотите отменить заказ?');">Отменить</button>
+                                    </form>
+                                    <form action="{% url 'pay_order' order.id %}" method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" onclick="return confirm('Вы уверены, что хотите оплатить заказ?');">Оплатить</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% empty %}
+                        <div class="no-orders">У вас нет заказов.</div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книги от {{ publisher.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="other-container">
+                <h1>Книги от "{{ publisher.name }}"</h1>
+                <div class="books-container">
+                    {% for item in books_with_genres %}
+                        <div class="book">
+                            <div class="field">
+                                <label class="label">Название:</label>
+                                <span class="value">
+                                    <a href="{% url 'book_detail' item.book.id %}">{{ item.book.name }}</a>
+                                </span>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Автор:</label>
+                                <span class="value">{{ item.book.author.name }}</span>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Дата публикации:</label>
+                                <span class="value">{{ item.book.date }}</span>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Жанры:</label>
+                                <span class="value">
+                                    {% for genre in item.genres %}
+                                        <a href="{% url 'genre_books' genre.id %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+                                    {% empty %}
+                                        Нет жанров
+                                    {% endfor %}
+                                </span>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Цена:</label>
+                                <span class="value">{{ item.book.cost }}</span>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Страниц:</label>
+                                <span class="value">{{ item.book.count_pages }}</span>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="no-books">Нет книг от этого издательства.</div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

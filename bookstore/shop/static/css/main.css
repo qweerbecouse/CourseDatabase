@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family: 'Golos Text', sans-serif;
+    --background-color: rgb(236, 236, 236);
+    --text-color: #333;
+    --border-color: #007BFF;
+    --hover-border-color: #0056b3;
+    --link-color: #007BFF;
+    --link-hover-color: #0056b3;
+    --button-bg: #007BFF;
+    --button-hover-bg: #0056b3;
+    --footer-bg: #f8f8f8;
+    --footer-border: #e7e7e7;
+    --padding-small: 5px;
+    --padding-medium: 10px;
+    --padding-large: 15px;
+    --margin-small: 10px;
+    --margin-medium: 15px;
+    --margin-large: 20px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 10px;
+    --transition-time: 0.3s;
+}
+
+/* Основные стили для body */
+html, body {
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер-обертка для всего содержимого страницы */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Основной контент страницы */
+.content {
+    flex: 1;
+}
+
+/* Контейнер для элементов клиента */
+.clients-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--margin-large);
+    flex-direction: column;
+}
+
+/* Стили для каждого элемента клиента */
+.clients-container .client {
+    display: flex;
+    width: max-content;
+    border: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: var(--padding-small);
+    border-radius: var(--border-radius-large);
+    background-color: white;
+}
+
+/* Контейнер для элементов книги */
+.books-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--margin-large);
+    flex-direction: row;
+    margin-top: var(--margin-large);
+}
+
+.book {
+    border: 1px solid #ccc;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius-medium);
+}
+
+/* Стили для каждого элемента книги */
+.books-container .book {
+    display: flex;
+    width: max-content;
+    border: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius-large);
+    background-color: #fff;
+}
+
+/* Верхняя панель */
+.top-panel {
+    background-color: var(--footer-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-large) calc(var(--padding-large) * 2);
+    border-bottom: 1px solid var(--footer-border);
+}
+
+/* Стили для ссылки логотипа */
+.logo h1 a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Стили для ссылок в правой части */
+.nav-right a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    margin-right: var(--margin-small);
+}
+
+.nav-right a:last-child {
+    margin-right: 0;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+}
+
+/* Контейнер для разделов Жанры и Издательства */
+.home-container {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--padding-large) calc(var(--padding-large) / 2);
+}
+
+/* Основной контейнер для других страниц */
+.other-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-large) calc(var(--padding-large) / 2);
+}
+
+/* Колонки для Жанров и Издательств */
+.column {
+    width: 45%;
+}
+
+.column h2 {
+    font-size: 1.5em;
+    margin-bottom: var(--margin-large);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--padding-small);
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column li {
+    margin-bottom: var(--margin-small);
+}
+
+.column a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+.column a:hover {
+    color: var(--link-color);
+}
+
+.admin-export-buttons {
+    margin-top: var(--margin-large);
+}
+
+.admin-export-buttons .btn {
+    display: inline-block;
+    padding: var(--padding-medium) calc(var(--padding-medium) * 1.5);
+    margin-right: var(--margin-small);
+    background-color: var(--button-bg);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--border-radius-small);
+    transition: background-color var(--transition-time) ease;
+}
+
+.admin-export-buttons .btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Стили для кнопки-ссылки */
+.link-button {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+.order button {
+    background-color: var(--button-bg);
+    color: #fff;
+    border: none;
+    padding: var(--padding-small) calc(var(--padding-small) * 1.5);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-time) ease;
+}
+
+.export-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-medium);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    background-color: #f9f9f9;
+    margin-bottom: var(--margin-medium);
+}
+
+.export-buttons {
+    display: flex;
+    gap: var(--margin-small);
+}
+
+.export-buttons .btn {
+    background-color: var(--button-bg);
+    color: #fff;
+    padding: var(--padding-small) calc(var(--padding-small) * 1.5);
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-time) ease;
+    text-decoration: none;
+}
+
+.export-buttons .btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+footer {
+    background-color: var(--footer-bg);
+    text-align: center;
+    padding: var(--padding-large) 0;
+    border-top: 1px solid var(--footer-border);
+}

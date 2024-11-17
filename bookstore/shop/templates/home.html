@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронная библиотека</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="home-container">
+                <section id="genres" class="column">
+                    <h2>Жанры</h2>
+                    <ul>
+                        {% for genre in genres %}
+                            <li><a href="{% url 'genre_books' genre.id %}">{{ genre.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section id="publishers" class="column">
+                    <h2>Издательства</h2>
+                    <ul>
+                        {% for publisher in publishers %}
+                            <li><a href="{% url 'publisher_books' publisher.id %}">{{ publisher.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>

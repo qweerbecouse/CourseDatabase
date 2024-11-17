@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-family: 'Golos Text', sans-serif;
+    --background-color: rgb(236, 236, 236);
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --link-color: #007BFF;
+    --link-hover-color: #0056b3;
+    --button-bg-color: #007BFF;
+    --button-hover-bg-color: #0056b3;
+    --border-color: #007BFF;
+    --secondary-bg-color: #f8f8f8;
+    --padding-small: 8px;
+    --padding-medium: 15px;
+    --padding-large: 20px;
+    --margin-small: 10px;
+    --margin-medium: 15px;
+    --margin-large: 30px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --transition-time: 0.3s;
+}
+
+/* Основные стили для body */
+html, body {
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер-обертка для всего содержимого страницы */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Основной контент страницы */
+.content {
+    flex: 1;
+}
+
+/* Верхняя панель */
+.top-panel {
+    background-color: var(--secondary-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-medium) calc(var(--padding-large) * 1.5);
+    border-bottom: 1px solid var(--secondary-bg-color);
+}
+
+/* Логотип */
+.logo h1 a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Навигация */
+.nav-right a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    margin-right: var(--margin-large);
+}
+
+.nav-right a:last-child {
+    margin-right: 0;
+}
+
+.nav-right a:hover {
+    text-decoration: none;
+}
+
+/* Основной контейнер */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-large) var(--padding-medium);
+}
+
+/* Заголовок */
+.container h2 {
+    font-size: 1.8em;
+    margin-bottom: var(--margin-medium);
+    padding-bottom: var(--margin-small);
+}
+
+/* Список заказов */
+.orders-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-medium);
+    width: 100%;
+    margin-top: var(--margin-medium);
+}
+
+/* Элемент заказа */
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--padding-medium);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    background-color: #fff;
+}
+
+/* Текст заказа */
+.order span {
+    font-size: 1em;
+}
+
+/* Кнопка "Оплатить" */
+.order .pay-button {
+    background-color: var(--button-bg-color);
+    color: #fff;
+    border: none;
+    padding: var(--padding-small) calc(var(--padding-small) * 1.5);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-time) ease;
+}
+
+.order .pay-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Кнопка "Отменить" */
+.order .cancel-button {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: var(--padding-small) calc(var(--padding-small) * 1.5);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: background-color var(--transition-time) ease, color var(--transition-time) ease;
+}
+
+.order .cancel-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: #fff;
+}
+
+/* Сообщение "У вас нет заказов" */
+.no-orders {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    padding: var(--padding-medium);
+    background-color: var(--secondary-bg-color);
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+}
+
+/* Кнопка-ссылка */
+.link-button {
+    background: none;
+    border: none;
+    color: var(--link-color);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+/* Блок с кнопками заказа */
+.order-buttons {
+    display: flex;
+    gap: var(--margin-large);
+}
+
+/* Футер */
+footer {
+    background-color: var(--secondary-bg-color);
+    text-align: center;
+    padding: var(--padding-medium) 0;
+    border-top: 1px solid var(--secondary-bg-color);
+}

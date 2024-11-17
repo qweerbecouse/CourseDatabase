@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экспорт данных</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% include "includes/top_panel.html" %}
+        </header>
+
+        <div class="content">
+            <main class="container">
+                <h1>Экспорт данных</h1>
+                
+                <div class="orders-container">
+                    <div class="export-section">
+                        <span>Экспорт книг</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'Book' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'Book' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт заказов</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'Order' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'Order' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт Книга-Жанр</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'BooksGenre' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'BooksGenre' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт авторов</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'Author' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'Author' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт издательств</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'Publisher' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'Publisher' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт пользователей</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'User' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'User' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+
+                    <div class="export-section">
+                        <span>Экспорт жанров</span>
+                        <div class="export-buttons">
+                            <a href="{% url 'export_data' 'Genre' 'json' %}" class="btn">JSON</a>
+                            <a href="{% url 'export_data' 'Genre' 'csv' %}" class="btn">CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <p>© 2024 Электронная библиотека. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>
